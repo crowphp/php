@@ -4,6 +4,35 @@ This is a public docker image that is built on top of official PHP image to prov
 8.0-cli-buster
 ```
 
+## How to use this image
+
+### Create a Dockerfile in your PHP project
+
+```
+FROM crowphp/php:8.0-cli-buster
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+CMD [ "php", "./your-script.php" ]
+```
+Then, run the commands to build and run the Docker image:
+
+```
+$ docker build -t my-php-app .
+$ docker run -it --rm --name my-running-app my-php-app
+```
+
+### Run a single PHP script
+For many simple, single file projects, you may find it inconvenient to write a complete Dockerfile. In such cases, you can run a PHP script by using the PHP Docker image directly:
+
+```
+$ docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:7.4-cli php your-script.php
+```
+For more extensions and on how to use php image follow the official documentation:
+
+https://hub.docker.com/_/php
+
+
+
 ## Quick reference
 Where to get help: the Docker Community Forums, the Docker Community Slack, or Stack Overflow
 
