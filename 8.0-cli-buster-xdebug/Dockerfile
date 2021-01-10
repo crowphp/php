@@ -4,8 +4,9 @@ RUN apt update && apt upgrade -y
 RUN apt install zip unzip libzip-dev git -y
 # Install PHP extensions
 RUN pecl install swoole \
+    && pecl install xdebug \
     && pecl install zip \
-    && docker-php-ext-enable swoole zip
+    && docker-php-ext-enable swoole xdebug zip
 
 RUN mv /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 # Install Composer
