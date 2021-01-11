@@ -1,7 +1,7 @@
 This is a public docker image that is built on top of official PHP image to provide pre installed extenions for crowphp in the CI environment and production
 ## Supported tags and respective Dockerfile links
 ```
-8.0-cli-buster
+8.0-cli-buster, 8.0-cli-buster-xdebug
 ```
 
 ## How to use this image
